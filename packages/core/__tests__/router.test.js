@@ -1,5 +1,21 @@
 const { getRoute, mergeRoutes, prepareRoutes } = require('../lib/router')
 
+const someRoutes = {
+  POST: [{
+    path: '/group/:id',
+    handler: (req, res) => {
+      res.write('Post on Group')
+      res.end()
+    }
+  }],
+  GET: [{
+    path: '/',
+    handler: (req, res) => {
+      res.write('Get on Root')
+      res.end()
+    }
+  }]
+}
 
 describe('getRoute ...', () => {
   test('returns undefined when no method is matched', () => {
@@ -27,22 +43,6 @@ describe('getRoute ...', () => {
 
 describe('mergeRoutes ...', () => {
   test('returns a merged routes object', () => {
-    const someRoutes = {
-      POST: [{
-        path: '/group/:id',
-        handler: (req, res) => {
-          res.write('Post on Group')
-          res.end()
-        }
-      }],
-      GET: [{
-        path: '/',
-        handler: (req, res) => {
-          res.write('Get on Root')
-          res.end()
-        }
-      }]
-    }
 
     const moreRoutes = {
       POST: [{
@@ -69,23 +69,6 @@ describe('mergeRoutes ...', () => {
 
 describe('prepareRoutes ...', () => {
   test('adds a regex matcher to each route', () => {
-    const someRoutes = {
-      POST: [{
-        path: '/group/:id',
-        handler: (req, res) => {
-          res.write('Post on Group')
-          res.end()
-        }
-      }],
-      GET: [{
-        path: '/',
-        handler: (req, res) => {
-          res.write('Get on Root')
-          res.end()
-        }
-      }]
-    }
-
     const preparedRoutes = prepareRoutes(someRoutes)
 
     expect(typeof preparedRoutes['GET'][0].match).toBe('function')
