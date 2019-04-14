@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 'lts/*'
+
+install:
+  - npm install
+  - lerna bootstrap
+  - lerna run compile
+
+obs:
+  include:
+    - stage: test
+      script:
+        - lerna run test --parallel
