@@ -43,7 +43,7 @@ const routes = prepareRoutes({
         res.writeHead(200, {
           'Content-Type': 'application/json'
         })
-        res.write(stringify({ hello: 'world' }))
+        res.write(JSON.stringify({ hello: 'world' }))
         res.end()
       }
     }
