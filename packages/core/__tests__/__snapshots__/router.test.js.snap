@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mergeRoutes ... returns a merged routes object 1`] = `
+Object {
+  "ACL": Array [],
+  "BIND": Array [],
+  "CHECKOUT": Array [],
+  "CONNECT": Array [],
+  "COPY": Array [],
+  "DELETE": Array [],
+  "GET": Array [
+    Object {
+      "handler": [Function],
+      "path": "/",
+    },
+    Object {
+      "handler": [Function],
+      "path": "/testroute",
+    },
+  ],
+  "HEAD": Array [],
+  "LINK": Array [],
+  "LOCK": Array [],
+  "M-SEARCH": Array [],
+  "MERGE": Array [],
+  "MKACTIVITY": Array [],
+  "MKCALENDAR": Array [],
+  "MKCOL": Array [],
+  "MOVE": Array [],
+  "NOTIFY": Array [],
+  "OPTIONS": Array [],
+  "PATCH": Array [],
+  "POST": Array [
+    Object {
+      "handler": [Function],
+      "path": "/group/:id",
+    },
+    Object {
+      "handler": [Function],
+      "path": "/user/:id",
+    },
+  ],
+  "PROPFIND": Array [],
+  "PROPPATCH": Array [],
+  "PURGE": Array [],
+  "PUT": Array [],
+  "REBIND": Array [],
+  "REPORT": Array [],
+  "SEARCH": Array [],
+  "SOURCE": Array [],
+  "SUBSCRIBE": Array [],
+  "TRACE": Array [],
+  "UNBIND": Array [],
+  "UNLINK": Array [],
+  "UNLOCK": Array [],
+  "UNSUBSCRIBE": Array [],
+}
+`;
