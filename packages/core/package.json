@@ -26,8 +26,7 @@
     "url": "git+https://github.com/marcklei/refactor-later.git"
   },
   "scripts": {
-    "test": "jest",
-    "test:cov": "jest --coverage"
+    "test": "jest --coverage"
   },
   "bugs": {
     "url": "https://github.com/marcklei/refactor-later/issues"
