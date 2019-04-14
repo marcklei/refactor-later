@@ -1,6 +1,6 @@
 {
   "name": "@refactor-later/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Basic http-server functionality",
   "keywords": [
     "node",
