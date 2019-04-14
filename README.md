@@ -57,3 +57,7 @@ server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
 ```
+
+### Next
+
+[ ] Add SearchParams and Hash handling
