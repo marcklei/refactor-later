@@ -6,5 +6,10 @@
   },
   "devDependencies": {
     "lerna": "^3.13.2"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }

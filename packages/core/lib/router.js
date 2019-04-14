@@ -4,9 +4,9 @@ const pathToRegexp = require('path-to-regexp')
 const http = require('http')
 
 module.exports.getRoute = (routes, req) => {
-  const preMatch = routes[req.method];
+  const preMatch = routes[req.method]
 
-  if (!preMatch) return;
+  if (!preMatch) return
 
   const length = preMatch.length
   let i = 0

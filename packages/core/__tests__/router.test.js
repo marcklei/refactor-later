@@ -24,26 +24,25 @@ describe('getRoute ...', () => {
   })
 
   test('returns undefined when no route is matched', () => {
-    const match = jest.fn(() => false);
+    const match = jest.fn(() => false)
     const result = getRoute({ GET: [{ match }] }, { method: 'GET' })
 
-    expect(match.mock.calls.length).toBe(1);
+    expect(match.mock.calls.length).toBe(1)
     expect(result).toBe(undefined)
   })
 
   test('returns the route object a route is matched', () => {
-    const match = jest.fn(() => true);
-    const route = { match, path: '/' };
+    const match = jest.fn(() => true)
+    const route = { match, path: '/' }
     const result = getRoute({ GET: [route] }, { method: 'GET' })
 
-    expect(match.mock.calls.length).toBe(1);
+    expect(match.mock.calls.length).toBe(1)
     expect(result.path).toBe('/')
   })
 })
 
 describe('mergeRoutes ...', () => {
   test('returns a merged routes object', () => {
-
     const moreRoutes = {
       POST: [{
         path: '/user/:id',

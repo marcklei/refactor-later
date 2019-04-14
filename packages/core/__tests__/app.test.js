@@ -3,24 +3,24 @@ const router = require('../lib/router')
 
 jest.mock('../lib/router', () => ({
   ...jest.requireActual('../lib/router'),
-  getRoute: jest.fn(),
-}));
+  getRoute: jest.fn()
+}))
 
 describe('createApp ...', () => {
   test('creates a callback function', () => {
-    const app = createApp();
+    const app = createApp()
     expect(typeof app).toBe('function')
   })
 
   test('uses the default route handler and returns a 404', async () => {
     const app = createApp({ routes: {} })
     const res = {
-      write(value) {
+      write (value) {
         this.result += value
       },
-      end() {
+      end () {
         this.ended = true
-      },
+      }
     }
 
     router.getRoute.mockReturnValue()
@@ -33,7 +33,7 @@ describe('createApp ...', () => {
   test('matches a GET route and calls the handler', async () => {
     const app = createApp({ routes: {} })
     const res = {}
-    const handler = jest.fn();
+    const handler = jest.fn()
 
     router.getRoute.mockReturnValue({
       path: '/',
@@ -42,7 +42,6 @@ describe('createApp ...', () => {
 
     await app({ method: 'GET', url: '/' }, res)
 
-    expect(handler.mock.calls.length).toBe(1);
+    expect(handler.mock.calls.length).toBe(1)
   })
-
 })
