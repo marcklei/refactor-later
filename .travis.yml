@@ -6,7 +6,7 @@ install:
   - npm install
   - lerna bootstrap
 
-obs:
+jobs:
   include:
     - stage: test
       script:
