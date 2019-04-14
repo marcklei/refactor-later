@@ -4,10 +4,10 @@
 
 Most importantly, here are the badges. :)
 
-# Refactor-later
+# @refactor-later
 
 This is a fun repository to play around with node http.  
-It is not its aim to be a production ready framework. If you are looking for one maybe try one of my favorites:
+It is not its aim to be a production ready framework. If you are looking for a solid solution maybe try one of my favorites:
 
 [Nest.js](https://nestjs.com/)  
 If you love typescript and/or angular you will love it aswell.
@@ -60,4 +60,5 @@ server.listen(PORT, () => {
 
 ### Next ToDo:
 
-- [ ] Add SearchParams and Hash handling
+- [x] Add SearchParams and Hash handling
+- [ ] Add App enhancer
