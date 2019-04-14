@@ -60,4 +60,4 @@ server.listen(PORT, () => {
 
 ### Next ToDo:
 
-[ ] Add SearchParams and Hash handling
+- [ ] Add SearchParams and Hash handling
