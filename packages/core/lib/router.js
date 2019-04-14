@@ -72,13 +72,20 @@ module.exports.prepareRoutes = (routes) => {
 
 module.exports.applyParams = (req, route) => {
   let params = {}
-  let query = {}
 
   if (route.keys && route.keys.length > 0) {
     params = route.keys.reduce((acc, match, i) => {
       return Object.assign({ [match.name]: route.matchResult[i + 1] }, acc)
     }, {})
   }
+
+  req.params = params
+
+  return req
+}
+
+module.exports.applySearch = (req) => {
+  let query = {}
 
   if (req.url.match(re)) {
     const protocol = req.connection.encrypted ? 'https' : 'http'
@@ -89,7 +96,6 @@ module.exports.applyParams = (req, route) => {
     }
   }
 
-  req.params = params
   req.query = query
 
   return req

@@ -12,6 +12,18 @@ Object {
     "commentId": 2,
     "id": 1,
   },
+  "url": "/posts/1/comments/2?sort=date&filter=false",
+}
+`;
+
+exports[`applySearch ... applys the params and query to the req 1`] = `
+Object {
+  "connection": Object {
+    "encrypted": true,
+  },
+  "headers": Object {
+    "host": "example.com",
+  },
   "query": Object {
     "filter": "false",
     "sort": "date",

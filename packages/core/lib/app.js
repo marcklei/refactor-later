@@ -1,10 +1,12 @@
 'use strict'
 
-const { applyParams, getRoute, defaultRoute } = require('./router')
+const { applyParams, applySearch, getRoute, defaultRoute } = require('./router')
 
 const handleRequest = async (req, res, route = defaultRoute) => {
   const reqWithParams = applyParams(req, route)
-  const handlerResult = await route.handler(reqWithParams, res)
+  const enhancedReq = applySearch(reqWithParams)
+
+  const handlerResult = await route.handler(enhancedReq, res)
   return handlerResult
 }
 
