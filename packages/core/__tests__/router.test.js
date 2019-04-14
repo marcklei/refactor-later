@@ -1,4 +1,4 @@
-const { getRoute, mergeRoutes, prepareRoutes } = require('../lib/router')
+const { applyParams, getRoute, mergeRoutes, prepareRoutes } = require('../lib/router')
 
 const someRoutes = {
   POST: [{
@@ -76,5 +76,28 @@ describe('prepareRoutes ...', () => {
     expect(typeof preparedRoutes['GET'][0].match('/')).toBeDefined()
     expect(preparedRoutes['POST'][0].match('/group/:id')).toBeDefined()
     expect(preparedRoutes['POST'][0].match('/')).toBeNull()
+  })
+})
+
+describe('applyParams ...', () => {
+  test('applys the params and query to the req', () => {
+    const req = applyParams(
+      {
+        connection: {
+          encrypted: true
+        },
+        headers: {
+          host: 'example.com'
+        },
+        url: '/posts/1/comments/2?sort=date&filter=false'
+      },
+      {
+        path: '/posts/:id/comments/:commentId',
+        handler: jest.fn(),
+        matchResult: ['', 1, 2],
+        keys: [{ name: 'id' }, { name: 'commentId' }]
+      })
+
+    expect(req).toMatchSnapshot()
   })
 })

@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`applyParams ... applys the params and query to the req 1`] = `
+Object {
+  "connection": Object {
+    "encrypted": true,
+  },
+  "headers": Object {
+    "host": "example.com",
+  },
+  "params": Object {
+    "commentId": 2,
+    "id": 1,
+  },
+  "query": Object {
+    "filter": "false",
+    "sort": "date",
+  },
+  "url": "/posts/1/comments/2?sort=date&filter=false",
+}
+`;
+
 exports[`mergeRoutes ... returns a merged routes object 1`] = `
 Object {
   "ACL": Array [],

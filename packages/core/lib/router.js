@@ -3,6 +3,8 @@
 const pathToRegexp = require('path-to-regexp')
 const http = require('http')
 
+const re = /.+?(?=\?|#)/i
+
 module.exports.getRoute = (routes, req) => {
   const preMatch = routes[req.method]
 
@@ -59,9 +61,36 @@ module.exports.prepareRoutes = (routes) => {
         return {
           ...route,
           keys,
-          match: (p) => regexp.exec(p)
+          match: (p) => {
+            return regexp.exec(p.match(re) || p)
+          }
         }
       })
     }
   }, {})
+}
+
+module.exports.applyParams = (req, route) => {
+  let params = {}
+  let query = {}
+
+  if (route.keys && route.keys.length > 0) {
+    params = route.keys.reduce((acc, match, i) => {
+      return Object.assign({ [match.name]: route.matchResult[i + 1] }, acc)
+    }, {})
+  }
+
+  if (req.url.match(re)) {
+    const protocol = req.connection.encrypted ? 'https' : 'http'
+    const url = new URL(`${protocol}://${req.headers.host}${req.url}`)
+
+    for (const pair of url.searchParams.entries()) {
+      query[pair[0]] = pair[1]
+    }
+  }
+
+  req.params = params
+  req.query = query
+
+  return req
 }
