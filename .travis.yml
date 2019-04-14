@@ -27,6 +27,6 @@ jobs:
         - lerna run test --parallel
         - ./merge_lcov.sh
       after_script:
-        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+        - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT -t lcov
         - ./cc-test-reporter format-coverage -t lcov ./lcov.info
         - ./cc-test-reporter upload-coverage
